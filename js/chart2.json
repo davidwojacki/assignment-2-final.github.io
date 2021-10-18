@@ -16,7 +16,7 @@
     },
     "description": "A simple radial chart with embedded data.",
     "data": {
-        "url": "data/data.csv"
+        "url": "data/dataset.csv"
       },
     "layer": [{
       "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff", "tooltip": {"content": "encoding"}}
