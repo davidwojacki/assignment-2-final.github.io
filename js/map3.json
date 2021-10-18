@@ -20,14 +20,14 @@
     "layer": [
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/Boundaries%20-%20Neighborhoods.json",
+          "url": "js/chicago.json",
           "format": {"type": "topojson", "feature": "Boundaries - Neighborhoods"}
         },
         "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
       },
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/test.csv"
+          "url": "data/data.csv"
         },
         "transform": [
             {"filter": {"or":[{"field": "start_station_name", "equal": "Canal St & Adams St"}, {"field": "start_station_name", "equal": "Clinton St & Madison St"},
@@ -46,7 +46,7 @@
        },
        {
         "data": {
-          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/test.csv"
+          "url": "data/data.csv"
         },
         "transform": [
             {"filter": {"or":[{"field": "start_station_name", "equal": "Kedzie Ave & 24th St"}, {"field": "start_station_name", "equal": "Stony Island Ave & South Chicago Ave"},
