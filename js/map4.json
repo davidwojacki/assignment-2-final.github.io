@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 500,
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  },
+    "title":{
+        "text":"CHICAGO BIKE SHARING - START LOCATIONS",
+        "color": "#377771",
+        "fontWeight": 800
+      },
+    "projection": {"type": "equirectangular", "scale":300000, "center": [-87.65,41.89]},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/Boundaries%20-%20Neighborhoods.json",
+          "format": {"type": "topojson", "feature": "Boundaries - Neighborhoods"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/test.csv"
+        },
+      
+        "mark": {"type": "circle", "tooltip": {"content": "data"}, "size": 10},
+        "encoding": {
+          "longitude": {"field": "end_lng", "type": "quantitative"},
+          "latitude": {"field": "end_lat", "type": "quantitative"},
+          "color": {"field":"day_of_week", "type":"nominal", "title":"Day of the Week"},
+          "size": {"aggregate":"count", "field": "day_of_week", "type": "quantitative", "title":"Frequency"}
+        }  
+      
+       } ]
+  }

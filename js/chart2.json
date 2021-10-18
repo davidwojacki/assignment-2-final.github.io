@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title":{
+        "text":"USERS FROM SAMPLE SIZE",
+        "color": "#377771",
+        "fontWeight": 800
+      },
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    },
+    "description": "A simple radial chart with embedded data.",
+    "data": {
+        "url": "data/data.csv"
+      },
+    "layer": [{
+      "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff", "tooltip": {"content": "encoding"}}
+    },{
+      "mark": {"type": "text", "radiusOffset": 20},
+      "encoding": {
+        "text": {"aggregate":"count", "field": "start_station_name", "type": "quantitative"}
+      }
+    }],
+    "encoding": {
+    
+      "theta": {"aggregate":"count", "field": "day_of_week", "type": "quantitative", "stack": true},
+      "radius": {"aggregate":"count",  "field": "day_of_week", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20, "rangeMax": 120}},
+      "color": {"field": "day_of_week", "type": "nominal", "legend": null}
+
+    }
+  }
+  

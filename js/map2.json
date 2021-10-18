@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    },
+    "width": 300,
+    "height": 400,
+    "title":{
+        "text":"MOST USED STATION'S CONNECTIONS",
+        "color": "#377771",
+        "fontWeight": 800
+      },
+    "projection": {"type": "equirectangular", "scale":200000, "center": [-87.644,41.88]},
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/Boundaries%20-%20Neighborhoods.json",
+          "format": {"type": "topojson", "feature": "Boundaries - Neighborhoods"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/davidwojacki/Assignment_2/main/test.csv"
+        },
+        "transform": [
+            {"filter": {"field": "start_station_name", "equal": "Canal St & Adams St"}}
+          ],
+        "mark": {"type": "rule", "tooltip": {"content": "data"}, "size": 0.1},
+        "encoding": {
+          "longitude": {"field": "start_lng", "type": "quantitative"},
+          "latitude": {"field": "start_lat", "type": "quantitative"},
+          "longitude2":{"field": "end_lng", "type": "quantitative"},
+          "latitude2":{"field": "end_lat", "type": "quantitative"}
+        }  
+      
+       } ]
+  }

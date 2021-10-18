@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="styles.css" media="all">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+
+</head>
+
+<!--Header-->
+
+<body style="max-width: 100%;">
+  <div class="center">
+    <img src="images/Header.png" class="banner">
+  </div>
+
+  <!--Two map divs-->
+
+  <!--Selection menu-->
+  <div class="row">
+    <div class="left">
+
+      <h1 style="text-align: center; color: #345; padding-top: 10px;"><span
+          style="color: #377771; font-weight: bolder; font-size: 42px">CHICAGO</span>
+
+      </h1>
+      <div class="info">
+        <div style="color: #334455; padding-top: 10px; text-align: right;"><span style="color: #b3ddf2;">Population
+            2,746,388
+          </span></div>
+        <p></p>
+        <div style="color: #334455; padding-top: 10px; text-align: right;"><span style="color: #b3ddf2;">Area
+            589.82&nbsp;km<sup>2</sup></span>
+        </div>
+        <p></p>
+        <div style="color: #334455; padding-top: 10px; text-align: right;"><span style="color: #b3ddf2;">Density
+            4,656.32/km</span>
+        </div>
+        <p></p>
+        <div style="color: #334455; padding-top: 10px; text-align: right;">&nbsp;</div>
+        <img src="images/density.png" style="max-width: 100%;">
+      </div>
+    </div>
+
+    <div class="middle" style="padding-top: 90px;">
+      <div id="mydivon" style="display:block"></div>
+      <div id="mydivoff" style="display:none"></div>
+      <a class="pure-button" href="javascript:;" onmousedown="toggleDiv('mydiv');">Zoom In/Out</a>
+
+    </div>
+
+    <div class="right">
+      <h1 style="text-align: center; color: #345; padding-top: 10px;"><span
+          style="color: #377771; font-weight: bolder; font-size: 42px">DIVVY</span>
+
+      </h1>
+      <div class="info">
+        <div style="color: #b3ddf2; padding-top: 10px; text-align: left;"><span style="color: #b3ddf2; ">Annual Usage
+            3,600,000
+          </span></div>
+        <p></p>
+        <div style="color: #b3ddf2; padding-top: 10px; text-align: left;"><span style="color: #b3ddf2;">Number of
+            Bikes 5,800</span></div>
+        <p></p>
+        <div style="color: #b3ddf2; padding-top: 10px; text-align: left;"><span style="color: #b3ddf2;">Number of
+            Stations 659</span></div>
+        <p></p>
+        <div style="color: #b3ddf2; padding-top: 10px; text-align: right;">&nbsp;</div>
+
+        <div style="max-height: 100%;">
+          <img src="images/divvy_bikes.png" style="max-width: 100%;">
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div style="color: #334455; padding-top: 10px; text-align: right;">&nbsp;</div>
+
+  <div class="row" style="margin-top: 60px">
+    <div class="left">
+      <div id="map_two" style="display: block;"></div>
+    </div>
+
+    <div class="middle" style="max-width: 70%;">
+      <div class="info">
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">Using <span
+            style="color: #ffaf87;">~250,000</span> data points</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">from <span
+            style="color: #ffaf87;">~4,000,000</span> available</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">&nbsp;</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">Most used station</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;"><span style="color: #ffaf87;">&nbsp;Cnr.
+            Canal St &amp; Adams St</span></div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">&nbsp;</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">Bike rentals for both</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;"><span style="color: #ffaf87;">short</span>
+          and <span style="color: #ffaf87;">long</span> trips</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">&nbsp;</div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">Most used stations in <span
+            style="color: #ffaf87;">inner city</span></div>
+        <div style="text-align: center; color: #b3ddf2; padding-top: 10px;">Least used stations in <span
+            style="color: #ffaf87;">less populated</span> <span style="color: #ffaf87;">suburbs</span></div>
+
+      </div>
+    </div>
+
+    <div class="right">
+      <div id="map_three" style="max-width: 100%;"></div>
+
+    </div>
+
+
+
+  </div>
+
+  <div style="color: #334455; padding-top: 30px; text-align: right;">&nbsp;</div>
+
+  <div class="row" style="margin-top: 60px">
+    <div class="left">
+      <h1 style="text-align: center; color: #345; padding-top: 10px;"><span
+        style="color: #377771; font-weight: bolder; font-size: 42px">DATA</span>
+
+    </h1>
+      <div class="info">
+        <p style="text-align: right;"><span style="color: #b3ddf2;">Approximately <span
+              style="color: #ffaf87;">83.30%</span> of users ride on weekdays,</span></p>
+        <p style="text-align: right;"><span style="color: #b3ddf2;">while <span style="color: #ffaf87;">16.70%</span> of
+            users ride on weekends</span></p>
+
+        
+      </div>
+    </div>
+
+    <div class="middle" style="max-width: 70%; text-align: center;">
+      <div id="chart_two"></div>
+    </div>
+
+    <div class="right">
+      <h1 style="text-align: center; color: #345; padding-top: 10px;"><span
+        style="color: #377771; font-weight: bolder; font-size: 42px">DATA</span>
+      <div class="info">
+        <p style="text-align: left;"><span style="color: #b3ddf2;">Of this sample, <span
+          style="color: #ffaf87;">205,432 </span>bikes are rented on weekdays,</span></p>
+    <p style="text-align: left;"><span style="color: #b3ddf2;">and <span style="color: #ffaf87;">41,199</span>
+        bikes are rented on weekends.</span></p>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+  <script type="text/javascript">
+
+    var spec2 = "js/chicago_map.json";
+    vegaEmbed('#mydivon', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec2 = "js/chart2.json";
+    vegaEmbed('#chart_two', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec2 = "js/map2.json";
+    vegaEmbed('#map_two', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec2 = "js/map3.json";
+    vegaEmbed('#map_three', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec2 = "js/map4.json";
+    vegaEmbed('#mydivoff', spec2).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+
+  </script>
+
+
+
+</body>
+
+</html>
