@@ -25,7 +25,7 @@
       },
       {
         "data": {
-          "url": "data/data.csv"
+          "url": "data/dataset.csv"
         },
         "transform": [
             {"filter": {"field": "start_station_name", "equal": "Canal St & Adams St"}}

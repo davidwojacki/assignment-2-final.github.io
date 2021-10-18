@@ -27,7 +27,7 @@
       },
       {
         "data": {
-          "url": "data/data.csv"
+          "url": "data/dataset.csv"
         },
         "transform": [
             {"filter": {"or":[{"field": "start_station_name", "equal": "Canal St & Adams St"}, {"field": "start_station_name", "equal": "Clinton St & Madison St"},
@@ -46,7 +46,7 @@
        },
        {
         "data": {
-          "url": "data/data.csv"
+          "url": "data/dataset.csv"
         },
         "transform": [
             {"filter": {"or":[{"field": "start_station_name", "equal": "Kedzie Ave & 24th St"}, {"field": "start_station_name", "equal": "Stony Island Ave & South Chicago Ave"},
